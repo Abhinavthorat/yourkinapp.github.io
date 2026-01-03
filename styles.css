@@ -186,6 +186,12 @@ h1 {
     margin-bottom: 0.8rem;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    /* Force width */
+    max-width: 340px;
+    /* Reverted width */
+    padding: 1rem 2rem;
+    box-sizing: border-box;
 }
 
 /* Subtle shine effect */
@@ -296,29 +302,47 @@ input {
     outline: none;
 }
 
-input::placeholder {
-    color: #444;
-}
-
-.btn-submit {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: #FFFFFF;
-    border: none;
-    cursor: pointer;
-    display: flex;
+/* WHATSAPP CTA BUTTON */
+.whatsapp-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    /* Glassy dark */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 24px;
+    /* Matches the card above */
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    /* Match width of card */
+    max-width: 340px;
+    /* Exact match to spend-card */
+    padding: 1rem 2rem;
+    box-sizing: border-box;
 }
 
-.btn-submit:hover {
-    transform: scale(1.05);
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
-.btn-submit:active {
-    transform: scale(0.95);
+.whatsapp-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover .arrow {
+    transform: translateX(4px);
 }
 
 .success-message {
@@ -358,22 +382,42 @@ input::placeholder {
 }
 
 /* Footer */
+/* Footer */
 .fixed-footer {
-    padding: 2rem;
-    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 2.5rem;
+    /* Give some breathing room from edges */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.8rem;
     color: #444;
-    z-index: 2;
+    z-index: 10;
+    box-sizing: border-box;
+    pointer-events: none;
+    /* Let clicks pass through empty space */
+}
+
+.fixed-footer>* {
+    pointer-events: auto;
+    /* Re-enable clicks on text/links */
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
 }
 
 .fixed-footer a {
     color: #666;
     text-decoration: none;
-    margin-left: 1rem;
-    transition: color 0.3s;
 }
 
-.fixed-footer a:hover {
+.fixed-footer *:hover {
+    opacity: 1;
     color: #fff;
 }
 
@@ -405,4 +449,77 @@ input::placeholder {
 
 .hidden {
     display: none;
+}
+
+/* RESPONSIVE DESIGN (Mobile) */
+@media (max-width: 768px) {
+
+    /* 1. Layout Stacking */
+    .single-view {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 15vh;
+        /* Push visual down a bit */
+        padding-bottom: 6rem;
+        /* Space for footer */
+        gap: 2rem;
+    }
+
+    .col-visual,
+    .col-content {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+        /* Center everything */
+    }
+
+    .col-content {
+        align-items: center;
+        /* Force center alignment for content */
+        padding: 0 1.5rem;
+    }
+
+    /* 2. Visual Adjustments */
+    .hero-visual {
+        width: 280px;
+        /* Smaller image */
+        height: 380px;
+    }
+
+    /* 3. Typography Scaling */
+    .hero-text {
+        font-size: 2.5rem;
+        /* Smaller heading */
+        align-items: center;
+        /* Center flex text */
+    }
+
+    .poetic-mini {
+        font-size: 0.65rem;
+        /* Smaller tagline */
+        letter-spacing: 0.15em;
+    }
+
+    /* 4. Interactive Elements */
+    .spend-card,
+    .whatsapp-btn {
+        max-width: 100%;
+        /* Full width on mobile */
+        width: 100%;
+    }
+
+    /* 5. Footer Adjustments */
+    .fixed-footer {
+        padding: 1.5rem;
+        font-size: 0.7rem;
+    }
+
+    .value-points {
+        align-items: center;
+        /* Center bullets */
+        text-align: left;
+        /* Keep text left-aligned for readability */
+        margin-top: 1rem;
+    }
 }

@@ -590,10 +590,30 @@ input {
     }
 
     .value-points {
+        display: flex;
+        /* Ensure flex behavior */
+        justify-content: center;
+        /* Center horizontally */
         align-items: center;
-        text-align: left;
+        width: 100%;
         margin-top: 1rem;
     }
+
+    .value-points li {
+        justify-content: center;
+        /* Center content of li */
+    }
+
+    .spend-card {
+        justify-content: center;
+        /* Center content inside card */
+    }
+
+    .demo-subtext {
+        text-align: center;
+        /* Center the subtext */
+    }
+
 
     /* Allow scrolling on mobile */
     body {

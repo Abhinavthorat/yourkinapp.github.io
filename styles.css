@@ -499,16 +499,20 @@ input {
     .single-view {
         flex-direction: column;
         justify-content: flex-start;
-        /* Start from top so we can scroll down */
-        padding-top: 120px;
-        /* Clear header */
+        padding-top: 100px;
         padding-bottom: 80px;
-        /* Clear footer */
-        gap: 2rem;
         height: auto;
-        /* Allow growth */
         overflow: visible;
-        /* Let body scroll */
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        /* CRITICAL FIX: Stack columns */
+        gap: 3rem;
+        /* Reduce gap from 5rem */
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
     }
 
     .col-visual,

@@ -49,6 +49,8 @@ body {
     z-index: 1;
     gap: 3rem;
     /* Space between main part and tagline */
+    padding-bottom: 100px;
+    /* Ensure tagline stays above fixed footer */
 }
 
 .content-wrapper {

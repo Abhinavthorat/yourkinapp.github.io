@@ -522,19 +522,24 @@ input {
 
     .col-content {
         align-items: center;
+        gap: 1.5rem;
+        /* Tighter spacing on mobile */
         /* Force center alignment for content */
         padding: 0 1.5rem;
     }
 
     /* 2. Visual Adjustments */
+    /* 2. Visual Adjustments */
     .hero-visual {
-        width: 100%;
-        max-width: 280px;
-        /* Limit max size */
-        height: auto;
-        aspect-ratio: 1/1;
-        /* Keep square-ish */
+        width: 280px;
+        /* Fixed width */
+        height: 280px;
+        /* Fixed height to prevent collapse */
         border-radius: 20px;
+        margin: 0 auto;
+        /* Ensure centering */
+        flex-shrink: 0;
+        /* Don't shrink */
     }
 
     /* 3. Typography Scaling */

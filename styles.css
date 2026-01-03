@@ -19,8 +19,8 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: var(--font-main);
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
@@ -500,7 +500,8 @@ input {
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 100px;
-        padding-bottom: 80px;
+        padding-bottom: 160px;
+        /* Ensure bottom content is visible above fixed footer */
         height: auto;
         overflow: visible;
     }

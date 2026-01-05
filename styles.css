@@ -464,6 +464,21 @@ input {
     display: none;
 }
 
+/* SOCIAL PROOF TEXT */
+.social-proof-text {
+    color: #fff;
+    font-size: 1.35rem;
+    /* Increased from 1.1rem */
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    /* Increased max-width slightly to accommodate larger text */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* TOP HEADER */
 .top-nav {
     position: fixed;
